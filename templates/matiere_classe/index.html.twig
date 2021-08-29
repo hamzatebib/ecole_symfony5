@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MatiereClasse index
+{% endblock %}
+
+{% block body %}
+	<h1>MatiereClasse index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>matiere</th>
+				<th>classe</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for matiere_classe in matiere_classes %}
+				<tr>
+					<td>{{ matiere_classe.id }}</td>
+					<td>{{ matiere_classe.getMatiereId() }}</td>
+					<td>{{ matiere_classe.getClasseId() }}</td>
+					<td>
+						<a href="{{ path('matiere_classe_show', {'id': matiere_classe.id}) }}">show</a>
+						<a href="{{ path('matiere_classe_edit', {'id': matiere_classe.id}) }}">edit</a>
+						{{ include('matiere_classe/_delete_form.html.twig') }}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="2">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('matiere_classe_new') }}">Create new</a>
+{% endblock %}

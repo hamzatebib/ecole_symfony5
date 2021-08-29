@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fichenote
+{% endblock %}
+
+{% block body %}
+	<h1>Fichenote</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ fichenote.id }}</td>
+			</tr>
+			<tr>
+				<th>Annee</th>
+				<td>{{ fichenote.annee }}</td>
+			</tr>
+			<tr>
+				<th>Semestre</th>
+				<td>{{ fichenote.semestre }}</td>
+			</tr>
+			<tr>
+				<th>Prof</th>
+				<td>{{ fichenote.getProfId}}</td>
+			</tr>
+			<tr>
+				<th>classe</th>
+				<td>{{ fichenote.getClasseId }}</td>
+			</tr>
+			<tr>
+				<th>Matiere</th>
+				<td>{{ fichenote.getMatiereId }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Eleve</th>
+
+				<th>VALEUR</th>
+				<th>Observations</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for note in notes %}
+				<tr>
+					<td>{{ note.id }}</td>
+					<td>{{ note.getEleveId() }}</td>
+
+					<td>{{ note.valeur }}</td>
+					<td>{{ note.observations }}</td>
+					<td>
+						<a href="{{ path('note_show', {'id': note.id}) }}">show</a>
+						<a href="{{ path('note_edit', {'id': note.id}) }}">edit</a>
+					</td>
+
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+
+	<a href="{{ path('fichenote_index') }}">back to list</a>
+	<br/>
+
+	<a href="{{ path('fichenote_edit', {'id': fichenote.id}) }}">edit</a>
+
+	{{ include('fichenote/_delete_form.html.twig') }}
+{% endblock %}

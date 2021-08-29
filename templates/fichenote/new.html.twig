@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Fichenote{% endblock %}
+
+{% block body %}
+    <h1>Create new Fichenote</h1>
+
+    {{ include('fichenote/_form.html.twig') }}
+
+    <a href="{{ path('fichenote_index') }}">back to list</a>
+{% endblock %}

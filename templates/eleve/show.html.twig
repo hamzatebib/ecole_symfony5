@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eleve{% endblock %}
+
+{% block body %}
+    <h1>Eleve</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ eleve.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ eleve.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ eleve.prenom }}</td>
+            </tr>
+            <tr>
+                <th>TelephoneEleve</th>
+                <td>{{ eleve.telephoneEleve }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{{ eleve.datenaissance ? eleve.datenaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Dateinscription</th>
+                <td>{{ eleve.dateinscription ? eleve.dateinscription|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Imageeleve</th>
+                <td>{{ eleve.imageeleve }}</td>
+            </tr>
+            <tr>
+                <th>NomPrenomMere</th>
+                <td>{{ eleve.NomPrenomMere }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('eleve_index') }}">back to list</a>
+
+    <a href="{{ path('eleve_edit', {'id': eleve.id}) }}">edit</a>
+
+    {{ include('eleve/_delete_form.html.twig') }}
+{% endblock %}

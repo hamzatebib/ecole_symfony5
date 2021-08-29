@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Fichenote{% endblock %}
+
+{% block body %}
+    <h1>Edit Fichenote</h1>
+
+    {{ include('fichenote/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('fichenote_index') }}">back to list</a>
+
+    {{ include('fichenote/_delete_form.html.twig') }}
+{% endblock %}

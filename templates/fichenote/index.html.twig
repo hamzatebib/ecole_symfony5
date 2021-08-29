@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fichenote index
+{% endblock %}
+
+{% block body %}
+	<h1>Fichenote index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Prof</th>
+				<th>Classe</th>
+				<th>Matiere</th>
+				<th>Annee</th>
+				<th>Semestre</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for fichenote in fichenotes %}
+				<tr>
+					<td>{{ fichenote.id }}</td>
+					<td>{{ fichenote.getProfId}}</td>
+					<td>{{ fichenote.getClasseId}}</td>
+					<td>{{ fichenote.getMatiereId}}</td>
+					<td>{{ fichenote.annee }}</td>
+					<td>{{ fichenote.semestre }}</td>
+					<td>
+						<a href="{{ path('fichenote_show', {'id': fichenote.id}) }}">show</a>
+						<a href="{{ path('fichenote_edit', {'id': fichenote.id}) }}">edit</a>
+						{{ include('fichenote/_delete_form.html.twig') }}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('fichenote_new') }}">Create new</a>
+{% endblock %}

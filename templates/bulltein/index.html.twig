@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bulltein index
+{% endblock %}
+
+{% block body %}
+	<h1>Bulltein index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Etudiant</th>
+				<th>Classe</th>
+				<th>Date</th>
+				<th>Semestre</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for bulltein in bullteins %}
+				<tr>
+					<td>{{ bulltein.id }}</td>
+					<td>{{ bulltein.getEleveId() }}</td>
+					<td>{{ bulltein.getClasseId()}}</td>
+					<td>{{ bulltein.date }}</td>
+					<td>{{ bulltein.semestre }}</td>
+					<td>
+						<a href="{{ path('bulltein_show', {'id': bulltein.id}) }}">show</a>
+						<a href="{{ path('bulltein_edit', {'id': bulltein.id}) }}">edit</a>
+						{{ include('bulltein/_delete_form.html.twig') }}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('bulltein_new') }}">Create new</a>
+{% endblock %}
