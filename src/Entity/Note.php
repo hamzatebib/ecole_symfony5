@@ -53,7 +53,7 @@ class Note
     private $classe_id;
 
     public function getId(): ?int
-    {
+    { //lll
         return $this->id;
     }
 
