@@ -54,6 +54,7 @@ class BullteinController extends AbstractController
     public function show(Bulltein $bulltein, BullteinRepository $bullteinRepository, int $id): Response
     {
 
+
         return $this->render('bulltein/show.html.twig', [
             'bulltein' => $bulltein,
             'notes' => $bullteinRepository->findnotesBulltein($id),
