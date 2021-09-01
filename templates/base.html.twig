@@ -1,25 +1,82 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
 		<title>
 			{% block title %}Welcome!
 			{% endblock %}
 		</title>
-		{# Run `composer require symfony/webpack-encore-bundle`
-												           and uncomment the following Encore helpers to start using Symfony UX #}
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-		{% block stylesheets %}
-			{#{{ encore_entry_link_tags('app') }}#}
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta name="description" content="Responsive Admin Template"/>
+		<meta
+		name="author" content="SmartUniversity"/>
 
+		{# Run `composer require symfony/webpack-encore-bundle`
+																																						           and uncomment the following Encore helpers to start using Symfony UX #}
+		{% block stylesheets %}
+			<!-- google font -->
+			<link
+			href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css"/>
+			<!-- icons -->
+			<link href="{{asset("assets/fonts/simple-line-icons/simple-line-icons.min.css")}}" rel="stylesheet" type="text/css"/>
+			<link href="{{asset("assets/fonts/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css"/>
+			<link
+			href="{{asset("assets/fonts/material-design-icons/material-icon.css")}}" rel="stylesheet" type="text/css"/>
+			<!--bootstrap -->
+			<link href="{{asset("assets/plugins/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet" type="text/css"/>
+			<link
+			href="{{asset("assets/plugins/summernote/summernote.css")}}" rel="stylesheet">
+			<!-- Material Design Lite CSS -->
+			<link rel="stylesheet" href="{{asset("assets/plugins/material/material.min.css")}}">
+			<link
+			rel="stylesheet" href="{{asset("assets/css/material_style.css")}}">
+			<!-- inbox style -->
+			<link
+			href="{{asset("assets/css/pages/inbox.min.css")}}" rel="stylesheet" type="text/css"/>
+			<!-- Theme Styles -->
+			<link href="{{asset("assets/css/theme/light/theme_style.css")}}" rel="stylesheet" id="rt_style_components" type="text/css"/>
+			<link href="{{asset("assets/css/plugins.min.css")}}" rel="stylesheet" type="text/css"/>
+			<link href="{{asset("assets/css/theme/light/style.css")}}" rel="stylesheet" type="text/css"/>
+			<link href="{{asset("assets/css/responsive.css")}}" rel="stylesheet" type="text/css"/>
+			<link
+			href="{{asset("assets/css/theme/light/theme-color.css")}}" rel="stylesheet" type="text/css"/>
+			<!-- favicon -->
+			<link rel="shortcut icon" href="http://radixtouch.in/templates/admin/smart/source/assets/img/favicon.ico"/>
 		{% endblock %}
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 		{% block javascripts %}
-			{#{{ encore_entry_script_tags('app') }}#}
+			<!-- start js include path -->
+			<script src="{{asset("assets/plugins/jquery/jquery.min.js")}}"></script>
+			<script src="{{asset("assets/plugins/popper/popper.js")}}"></script>
+			<script src="{{asset("assets/plugins/jquery-blockui/jquery.blockui.min.js")}}"></script>
+			<script src="{{asset("assets/plugins/jquery-slimscroll/jquery.slimscroll.js")}}"></script>
+			<!-- bootstrap -->
+			<script src="{{asset("assets/plugins/bootstrap/js/bootstrap.min.js")}}"></script>
+			<script src="{{asset("assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js")}}"></script>
+			<script src="{{asset("assets/plugins/sparkline/jquery.sparkline.js")}}"></script>
+			<script src="{{asset("assets/js/pages/sparkline/sparkline-data.js")}}"></script>
+			<!-- Common js-->
+			<script src="{{asset("assets/js/app.js")}}"></script>
+			<script src="{{asset("assets/js/layout.js")}}"></script>
+			<script src="{{asset("assets/js/theme-color.js")}}"></script>
+			<!-- material -->
+			<script src="{{asset("assets/plugins/material/material.min.js")}}"></script>
+			<!-- chart js -->
+			<script src="{{asset("assets/plugins/chart-js/Chart.bundle.js")}}"></script>
+			<script src="{{asset("assets/plugins/chart-js/utils.js")}}"></script>
+			<script src="{{asset("assets/js/pages/chart/chartjs/home-data.js")}}"></script>
+			<!-- summernote -->
+			<script src="{{asset("assets/plugins/summernote/summernote.js")}}"></script>
+			<script src="{{asset("assets/js/pages/summernote/summernote-data.js")}}"></script>
+			<!-- end js include path -->
 		{% endblock %}
 	</head>
+
 	<body>
-		{% block body %}{% endblock %}
-	</body>
-</html>
+		{% include('./header.html.twig') %}
+		<div style="margin-left:300px"> {% block body %}{% endblock %}
+			</div>
+
+		</body>
+	</html>
