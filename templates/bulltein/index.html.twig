@@ -11,6 +11,7 @@
 			<tr>
 				<th>Id</th>
 				<th>Etudiant</th>
+				<th>Prenom</th>
 				<th>Classe</th>
 				<th>Date</th>
 				<th>Semestre</th>
@@ -22,6 +23,8 @@
 				<tr>
 					<td>{{ bulltein.id }}</td>
 					<td>{{ bulltein.getEleveId() }}</td>
+					<td>{{ 	bulltein.getEleveId().prenom }}</td>
+
 					<td>{{ bulltein.getClasseId()}}</td>
 					<td>{{ bulltein.date }}</td>
 					<td>{{ bulltein.semestre }}</td>
